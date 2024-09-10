@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { nanoid } from "nanoid";
+import { Analytics } from "@vercel/analytics/react";
 import ContactForm from "./components/ContactForm/ContactForm";
 import ContactList from "./components/ContactList/ContactList";
 import SearchBox from "./components/SearchBox/SearchBox";
