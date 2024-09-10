@@ -1,4 +1,3 @@
-import React from "react";
 import { IoIosContact } from "react-icons/io";
 import { FaPhoneAlt } from "react-icons/fa";
 import s from "./Contact.module.css";

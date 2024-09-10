@@ -28,11 +28,11 @@ export default function ContactForm({ onSubmit }) {
       >
         <Form className={s.form}>
           <label htmlFor={nameId}>Name</label>
-          <Field type="text" name="name" />
-          <ErrorMessage />
+          <Field type="text" name="name" id={nameId} />
+          <ErrorMessage className={s.error} name="name" component="span" />
           <label htmlFor={numberId}>Namber</label>
-          <Field type="tel" name="number" />
-          <ErrorMessage />
+          <Field type="tel" name="number" id={numberId} />
+          <ErrorMessage className={s.error} name="number" component="span" />
           <button type="submit">Add contact</button>
         </Form>
       </Formik>

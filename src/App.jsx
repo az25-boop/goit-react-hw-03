@@ -3,7 +3,7 @@ import { nanoid } from "nanoid";
 import ContactForm from "./components/ContactForm/ContactForm";
 import ContactList from "./components/ContactList/ContactList";
 import SearchBox from "./components/SearchBox/SearchBox";
-import s from "./App.css";
+import s from "./App.module.css";
 import initialContacts from "./contact.json";
 
 export default function App() {

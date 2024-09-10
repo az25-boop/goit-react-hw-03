@@ -1,11 +1,11 @@
-import React from "react";
+import { useId } from "react";
 import s from "./SearchBox.module.css";
 
-export default function SearchBox(filter, onFilter) {
-  const searchId = useID();
+export default function SearchBox({ filter, onFilter }) {
+  const searchId = useId();
   return (
     <div className={s.search}>
-      <label htmlFor={seachId}>Find contacts by name</label>
+      <label htmlFor={searchId}>Find contacts by name</label>
       <input
         type="text"
         id={searchId}
