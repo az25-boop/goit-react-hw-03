@@ -1,18 +1,18 @@
 import React from "react";
-// import s from "./Contact.module.css";
+import s from "./Contact.module.css";
 
-const Contact = ({ id, name, number }) => {
+export default function Contact({ data, onDelete }) {
   return (
-    <div className="s.list">
-      <ul>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-      </ul>
-      Contact
+    <div className={s.contact}>
+      <div>
+        <p>
+          <IoIosContact className={s.icon} /> {data.name}
+        </p>
+        <p>
+          <FaPhoneAlt className={s.icon} /> {data.number}
+        </p>
+      </div>
+      <button onClick={() => onDelete(data.id)}>Delete</button>
     </div>
   );
-};
-
-export default Contact;
+}

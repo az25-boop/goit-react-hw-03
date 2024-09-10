@@ -8,18 +8,39 @@ import s from "./App.css";
 import contact from "./contact.json";
 
 export default function App() {
+  const [contacts, setContacts] = useState(() => {
+    const savedData = JSON.parse(localStorage.getItem("contacts"));
+    if (savedData !== null) {
+      return savedData;
+    }
+    return initialContacts;
+  });
+  const [filter, setFilter] = useState("");
+  useEffect(() => {
+    localStorage.setItem("contacts", JSON.stringify(contacts));
+  }, [contacts]);
+  const visibleContacts = contacts.filter((contact) =>
+    contact.name.toLowerCase().includes(filter.toLowerCase())
+  );
+  const handleSubmit = (values, actions) => {
+    values = { ...values, id: nanoid() };
+    setContacts((prevTasks) => {
+      return [...prevTasks, values];
+    });
+    actions.resetForm();
+  };
+  const deleteContact = (contactId) => {
+    setContacts((prevContacts) => {
+      return prevContacts.filter((contact) => contact.id !== contactId);
+    });
+  };
   return (
     <>
       <div className={s.app}>
         <h1>Phonebook</h1>
-        <ContactForm />
-        <SearchBox />
-        <ContactList />
-        <Contact
-          contact={contact.id}
-          name={contact.name}
-          number={contact.number}
-        />
+        <ContactForm onSubmit={handleSubmit} />
+        <SearchBox  filter={filter} onFilter={setFilter}/>
+        <ContactList contacts={visibleContacts} onDelete={deleteContact}/>
       </div>
     </>
   );
