@@ -1,8 +1,12 @@
 import React from "react";
-// import s from "./SearchBox.module.css";
+import s from "./SearchBox.module.css";
 
-const SearchBox = () => {
-  return <div>SearchBox</div>;
-};
-
-export default SearchBox;
+export default function SearchBox(filter, onFilter) {
+  const searchID = useID();
+  return (
+    <div className={s.search}>
+      <label htmlFor=""></label>
+      <input type="text" />
+    </div>
+  );
+}
