@@ -9,13 +9,13 @@ export default function ContactForm({ onSubmit }) {
 
   const formSchema = Yup.object().shape({
     name: Yup.string()
-      .min(3, "Too short!")
-      .max(50, "Too long!")
-      .required("Required"),
+      .min(3, "Too short! 💖")
+      .max(10, "Too long! 😍")
+      .required("Required ✔"),
     number: Yup.string()
-      .min(3, "Too short!")
-      .max(50, "Too long!")
-      .required("Required"),
+      .min(3, "Too short! 😜")
+      .max(50, "Too long! 😎")
+      .required("Required ✔"),
   });
 
   return (
